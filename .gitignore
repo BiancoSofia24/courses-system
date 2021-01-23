@@ -4,9 +4,9 @@
 *.project
 
 # Folders
-*.setting/
+*/.setting
 
-*target/
+*/target
 
 *doc/
 
