@@ -1,0 +1,14 @@
+Fecha de creación: 12/01/2021 21:41:36
+Inscripción #17
+------------------
+
+Alumno: Cristina Yazon
+Curso: Javascript
+Comisión: null
+Estado: active
+
+Notas
+----------
+
+Nota Parcial: 0
+Nota Final: 0

@@ -1,0 +1,14 @@
+Fecha de creación: 12/01/2021 20:10:58
+Inscripción #3
+------------------
+
+Alumno: Juan Perez
+Curso: Java
+Comisión: 2
+Estado: active
+
+Notas
+----------
+
+Nota Parcial: 6
+Nota Final: 8
