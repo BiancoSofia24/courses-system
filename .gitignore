@@ -6,6 +6,8 @@
 # Folders
 *.setting/
 
+*.target/
+
 *doc/
 
 # Log file
