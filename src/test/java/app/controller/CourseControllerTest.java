@@ -16,13 +16,15 @@ public class CourseControllerTest {
 	@Test
 	public void shouldUpdateCourse() throws ClassNotFoundException, SQLException {
 		Connection con = AdminDB.getConnection();
-		int id = 29; // Update the id
+		int id = 18;
 		Course courseBefore = CoursesDAO.findById(id, con);
 		String nameBefore = courseBefore.getcName();
-		Course courseUpdated = new Course(id, "Modificado");
+		Course courseUpdated = new Course(id, "Updated");
 		CoursesHelper.update(courseUpdated, con);
 		Course courseAfter = CoursesDAO.findById(id, con);
 		String nameAfter = courseAfter.getcName();
+		courseUpdated = new Course(id, nameBefore);
+		CoursesHelper.update(courseUpdated, con);
 		int compare = nameBefore.compareTo(nameAfter);
 		assert (compare != 0);
 	}
