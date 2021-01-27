@@ -26,10 +26,9 @@ public class InscriptionsDAO {
 		PreparedStatement prepStmt = con.prepareStatement(sql);
 		ResultSet resultSet = prepStmt.executeQuery();
 		while (resultSet.next()) {
-			int idInsc = resultSet.getInt(1);
-			Inscription inscription = new Inscription(resultSet.getInt(2), resultSet.getInt(3), resultSet.getInt(4),
-					resultSet.getString(5), resultSet.getInt(6), resultSet.getInt(7), resultSet.getString(8));
-			inscription.setIdInsc(idInsc);
+			Inscription inscription = new Inscription(resultSet.getInt(1), resultSet.getInt(2), resultSet.getInt(3),
+					resultSet.getInt(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getInt(7),
+					resultSet.getString(8));
 			inscriptionsList.add(inscription);
 		}
 		return inscriptionsList;
@@ -60,5 +59,20 @@ public class InscriptionsDAO {
 					resultSet.getString(8));
 		}
 		return inscription;
+	}
+
+	public static List<Inscription> findCoursesByStudentId(int idStudent, Connection con) throws SQLException {
+		List<Inscription> list = new ArrayList<Inscription>();
+		String sql = "SELECT i.idInsc, i.id_student, i.id_course FROM inscriptions i, students s WHERE i.id_student = ? AND s.idStud = ?";
+		PreparedStatement prepStmt = con.prepareStatement(sql);
+		prepStmt.setInt(1, idStudent);
+		prepStmt.setInt(2, idStudent);
+		ResultSet resultSet = prepStmt.executeQuery();
+		Inscription inscription = null;
+		while (resultSet.next()) {
+			inscription = new Inscription(resultSet.getInt(1), resultSet.getInt(2), resultSet.getInt(3));
+			list.add(inscription);
+		}
+		return list;
 	}
 }

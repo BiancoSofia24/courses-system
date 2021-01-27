@@ -42,15 +42,25 @@ public class CoursesDAOTest {
 	}
 
 	@Test
-	public void shouldInsertAndDeleteCourseTest() throws ClassNotFoundException, SQLException {
+	public void shouldCUDCourseTest() throws ClassNotFoundException, SQLException {
 		Connection con = AdminDB.getConnection();
 		String name = "test";
 		String sql = "INSERT INTO courses (cName) VALUES (?)";
 		PreparedStatement prepStmt = con.prepareStatement(sql);
 		prepStmt.setString(1, name);
-		prepStmt.executeUpdate();
+		int inserted = prepStmt.executeUpdate();
+		assert (inserted == 1);
+
 		List<Course> list = CoursesDAO.findByName(name, con);
 		int id = list.get(0).getIdCourse();
+		name = list.get(0).getcName();
+		sql = "UPDATE courses SET cName = ? WHERE idCourse = ?";
+		prepStmt = con.prepareStatement(sql);
+		prepStmt.setString(1, name);
+		prepStmt.setInt(2, id);
+		int updated = prepStmt.executeUpdate();
+		assert (updated == 1);
+
 		sql = "DELETE FROM courses WHERE idCourse = ?";
 		prepStmt = con.prepareStatement(sql);
 		prepStmt.setInt(1, id);

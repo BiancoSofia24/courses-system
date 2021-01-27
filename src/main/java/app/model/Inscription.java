@@ -44,6 +44,12 @@ public class Inscription {
 		this.status = status;
 	}
 
+	public Inscription(int idInsc, int idStudent, int idCourse) {
+		this.idInsc = idInsc;
+		this.idStudent = idStudent;
+		this.idCourse = idCourse;
+	}
+
 	public String getCommission() {
 		return commission;
 	}

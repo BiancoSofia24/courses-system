@@ -14,25 +14,27 @@ import app.model.Course;
 public class CourseControllerTest {
 
 	@Test
-	public void shouldUpdateCourse() throws ClassNotFoundException, SQLException {
+	public void shouldCUDCourse() throws ClassNotFoundException, SQLException {
 		Connection con = AdminDB.getConnection();
-		int id = 18;
-		Course courseBefore = CoursesDAO.findById(id, con);
-		String nameBefore = courseBefore.getcName();
+		String name = "test";
+		Course course = new Course(name);
+		int inserted = CoursesDAO.insert(course, con);
+		assert (inserted == 1);
+
+		List<Course> list = CoursesDAO.findByName(name, con);
+		int id = list.get(0).getIdCourse();
 		Course courseUpdated = new Course(id, "Updated");
-		CoursesHelper.update(courseUpdated, con);
-		Course courseAfter = CoursesDAO.findById(id, con);
-		String nameAfter = courseAfter.getcName();
-		courseUpdated = new Course(id, nameBefore);
-		CoursesHelper.update(courseUpdated, con);
-		int compare = nameBefore.compareTo(nameAfter);
-		assert (compare != 0);
+		int updated = CoursesDAO.update(courseUpdated, con);
+		assert (updated == 1);
+
+		int deleted = CoursesDAO.delete(id, con);
+		assert (deleted == 1);
 	}
 
 	@Test
 	public void shouldInsertAndDeleteCourse() throws ClassNotFoundException, SQLException {
 		Connection con = AdminDB.getConnection();
-		String name = "test000";
+		String name = "test";
 		Course newCourse = new Course(name);
 		CoursesHelper.insert(newCourse, con);
 		List<Course> listBefore = CoursesDAO.findAll(con);

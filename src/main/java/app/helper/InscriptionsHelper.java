@@ -29,7 +29,7 @@ public class InscriptionsHelper {
 	}
 
 	public static void showList(List<Inscription> inscriptionsList, Connection con) {
-		Util.showSubtitle("Id | Alumno    | Curso    | Profesor    | Estado");
+		Util.showSubtitle("Id | Alumno    | Curso     | Estado");
 		inscriptionsList.forEach((i) -> {
 			Student student;
 			Course course;
@@ -92,6 +92,17 @@ public class InscriptionsHelper {
 				+ '\n' + '\n' + "Notas" + '\n' + "----------" + '\n' + '\n' + "Nota Parcial: "
 				+ inscription.getPartialNote() + '\n' + "Nota Final: " + inscription.getFinalNote();
 		return fileContent;
+	}
+
+	public static void createValidInscription(Student student, Course course, Connection con) throws SQLException {
+		List<Inscription> list = InscriptionsDAO.findCoursesByStudentId(student.getIdStudent(), con);
+		if (list.size() < 2) {
+			String status = "active";
+			Inscription inscription = new Inscription(student, course, status);
+			insert(inscription, con);
+		} else {
+			Util.showError("Cantidad máxima de cursos por alumno alacanzada");
+		}
 	}
 
 }

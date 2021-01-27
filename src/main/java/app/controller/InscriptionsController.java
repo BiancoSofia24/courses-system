@@ -36,8 +36,23 @@ public class InscriptionsController {
 			case 5:
 				createFile(scan, con);
 				break;
+			case 6:
+				searchCourseByStudent(scan, con);
+				break;
 			}
 			option = showInscriptionsSubmenu(scan);
+		}
+	}
+
+	private static void searchCourseByStudent(Scanner scan, Connection con) throws SQLException {
+		Util.showTitle("Buscar Curso por Alumno");
+		// give the option (for id, for name, for lastName)
+		int idStudent = Util.requestId(scan, "alumno");
+		List<Inscription> list = InscriptionsDAO.findCoursesByStudentId(idStudent, con);
+		if (list.size() > 1) {
+			InscriptionsHelper.showList(list, con);
+		} else {
+			Util.showError("No se encontraron registros");
 		}
 	}
 
@@ -108,9 +123,7 @@ public class InscriptionsController {
 				System.out.print("¿Desea crear este registro? y/n -> ");
 				String opt = scan.next();
 				if (opt.toUpperCase().equals("Y")) {
-					String status = "active";
-					Inscription inscription = new Inscription(student, course, status);
-					InscriptionsHelper.insert(inscription, con);
+					InscriptionsHelper.createValidInscription(student, course, con);
 				} else if (opt.toUpperCase().equals("N")) {
 					System.out.println("Registro no creado");
 				}
@@ -126,6 +139,7 @@ public class InscriptionsController {
 		System.out.println("3 - Modificar Inscripción");
 		System.out.println("4 - Eliminar Inscripción");
 		System.out.println("5 - Crear archivo con registro");
+		System.out.println("6 - Buscar Cursos por Alumno");
 		// Student per course. Search by teacher, status, commission, course
 		System.out.println("Faltan opciones :)");
 		System.out.println("0 - Ir Atrás");
