@@ -11,19 +11,19 @@ import app.utils.Util;
 public class TeachersHelper {
 
 	public static void showList(List<Teacher> list) {
-		Util.showSubtitle("Id | Nombre | Apellido  | Correo Electrónico   | Especialidad");
-		list.forEach((item) -> {
+		Util.showSubtitle("Id | Nombre | Apellido  | Correo Electrï¿½nico   | Especialidad");
+		for (Teacher item: list) {
 			System.out.println(item.getIdTeacher() + " | " + item.gettName() + " | " + item.gettLastName() + " | "
 					+ Util.valueForNullString(item.gettEmail()) + " | " + Util.valueForNullString(item.getSpecialty()));
-		});
+		}
 	}
 
 	public static void showListByLastName(List<Teacher> list) {
-		Util.showSubtitle("Id | Apellido | Nombre  | Correo Electrónico   | Especialidad");
-		list.forEach((item) -> {
+		Util.showSubtitle("Id | Apellido | Nombre  | Correo Electrï¿½nico   | Especialidad");
+		for (Teacher item: list) {
 			System.out.println(item.getIdTeacher() + " | " + item.gettLastName() + " " + item.gettName() + " | "
 					+ Util.valueForNullString(item.gettEmail()) + " | " + Util.valueForNullString(item.getSpecialty()));
-		});
+		}
 	}
 
 	public static void insert(Teacher teacher, Connection con) throws SQLException {
@@ -40,7 +40,7 @@ public class TeachersHelper {
 		if (updated == 1) {
 			System.out.println("Profesor editado correctamente");
 		} else {
-			Util.showError("Error en la edición de registro");
+			Util.showError("Error en la ediciï¿½n de registro");
 		}
 	}
 

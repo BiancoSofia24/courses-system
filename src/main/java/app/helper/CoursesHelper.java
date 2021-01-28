@@ -12,9 +12,9 @@ public class CoursesHelper {
 
 	public static void showList(List<Course> list) {
 		Util.showSubtitle("Id | Curso");
-		list.forEach((item) -> {
+		for (Course item : list) {
 			System.out.println(item.getIdCourse() + " | " + item.getcName());
-		});
+		}
 	}
 
 	public static void insert(Course course, Connection con) throws SQLException {
@@ -31,7 +31,7 @@ public class CoursesHelper {
 		if (updated == 1) {
 			System.out.println("Registro editado exitosamente");
 		} else {
-			Util.showError("Error en la edición de registro");
+			Util.showError("Error en la ediciï¿½n de registro");
 		}
 	}
 

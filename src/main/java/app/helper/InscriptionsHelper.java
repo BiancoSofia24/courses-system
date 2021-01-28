@@ -30,7 +30,7 @@ public class InscriptionsHelper {
 
 	public static void showList(List<Inscription> inscriptionsList, Connection con) {
 		Util.showSubtitle("Id | Alumno    | Curso     | Estado");
-		inscriptionsList.forEach((i) -> {
+		for (Inscription i : inscriptionsList) {
 			Student student;
 			Course course;
 			try {
@@ -41,21 +41,21 @@ public class InscriptionsHelper {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		});
+		}
 	}
 
 	public static void showInscription(Inscription actualInscription, Connection con) throws SQLException {
-		Util.showSubtitle("Inscripción #" + actualInscription.getIdInsc());
+		Util.showSubtitle("Inscripciï¿½n #" + actualInscription.getIdInsc());
 		System.out.println(StudentsDAO.findById(actualInscription.getIdStudent(), con));
 		System.out.println(CoursesDAO.findById(actualInscription.getIdCourse(), con));
 		System.out.println("Estado: " + actualInscription.getStatus());
 	}
 
 	public static void showFullInscription(Inscription actualInscription, Connection con) throws SQLException {
-		Util.showSubtitle("Inscripción #" + actualInscription.getIdInsc());
+		Util.showSubtitle("Inscripciï¿½n #" + actualInscription.getIdInsc());
 		System.out.println(StudentsDAO.findById(actualInscription.getIdStudent(), con));
 		System.out.println(CoursesDAO.findById(actualInscription.getIdCourse(), con));
-		System.out.println("Comisión: " + actualInscription.getCommission());
+		System.out.println("Comisiï¿½n: " + actualInscription.getCommission());
 		System.out.println("Estado: " + actualInscription.getStatus());
 		Util.showSubtitle("Notas");
 		System.out.println("Nota Parcial: " + actualInscription.getPartialNote());
@@ -85,9 +85,9 @@ public class InscriptionsHelper {
 	private static String fileContent(Inscription inscription, Connection con) throws SQLException {
 		SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		String date = simpleDate.format(new Date());
-		String fileContent = "Fecha de creación: " + date + '\n' + "Inscripción #" + inscription.getIdInsc() + '\n'
+		String fileContent = "Fecha de creaciï¿½n: " + date + '\n' + "Inscripciï¿½n #" + inscription.getIdInsc() + '\n'
 				+ "------------------" + '\n' + '\n' + StudentsDAO.findById(inscription.getIdStudent(), con) + '\n'
-				+ CoursesDAO.findById(inscription.getIdCourse(), con) + '\n' + "Comisión: "
+				+ CoursesDAO.findById(inscription.getIdCourse(), con) + '\n' + "Comisiï¿½n: "
 				+ Util.valueForNullString(inscription.getCommission()) + '\n' + "Estado: " + inscription.getStatus()
 				+ '\n' + '\n' + "Notas" + '\n' + "----------" + '\n' + '\n' + "Nota Parcial: "
 				+ inscription.getPartialNote() + '\n' + "Nota Final: " + inscription.getFinalNote();
@@ -101,7 +101,7 @@ public class InscriptionsHelper {
 			Inscription inscription = new Inscription(student, course, status);
 			insert(inscription, con);
 		} else {
-			Util.showError("Cantidad máxima de cursos por alumno alacanzada");
+			Util.showError("Cantidad mï¿½xima de cursos por alumno alacanzada");
 		}
 	}
 

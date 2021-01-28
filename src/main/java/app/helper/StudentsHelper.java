@@ -16,19 +16,19 @@ import app.utils.Util;
 public class StudentsHelper {
 
 	public static void showList(List<Student> list) {
-		Util.showSubtitle("Id | Nombre   | Apellido    | Correo Electrónico");
-		list.forEach((item) -> {
+		Util.showSubtitle("Id | Nombre   | Apellido    | Correo Electrï¿½nico");
+		for (Student item: list) {
 			System.out.println(item.getIdStudent() + " | " + item.getsName() + " " + item.getsLastName() + " | "
 					+ Util.valueForNullString(item.getsEmail()));
-		});
+		}
 	}
 
 	public static void showListByLastName(List<Student> list) {
-		Util.showSubtitle("Id | Apellido    | Nombre     | Correo Electrónico");
-		list.forEach((item) -> {
+		Util.showSubtitle("Id | Apellido    | Nombre     | Correo Electrï¿½nico");
+		for (Student item: list) {
 			System.out.println(item.getIdStudent() + " | " + item.getsLastName() + " | " + item.getsName() + " | "
 					+ Util.valueForNullString(item.getsEmail()));
-		});
+		}
 	}
 
 	public static void insert(Student student, Connection con) throws SQLException {
@@ -45,7 +45,7 @@ public class StudentsHelper {
 		if (updated == 1) {
 			System.out.println("Registro editado exitosamente");
 		} else {
-			Util.showError("Error en la edición de registro");
+			Util.showError("Error en la ediciï¿½n de registro");
 		}
 	}
 
@@ -72,9 +72,9 @@ public class StudentsHelper {
 	public static String fileContent(Student student, Connection con) throws SQLException {
 		SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		String date = simpleDate.format(new Date());
-		String fileContent = "Fecha de creación: " + date + '\n' + '\n' + "Alumno #" + student.getIdStudent() + '\n'
+		String fileContent = "Fecha de creaciï¿½n: " + date + '\n' + '\n' + "Alumno #" + student.getIdStudent() + '\n'
 				+ "-------------------" + '\n' + '\n' + "Nombre: " + student.getsName() + '\n' + "Apellido: "
-				+ student.getsLastName() + '\n' + "Correo electrónico: " + Util.valueForNullString(student.getsEmail());
+				+ student.getsLastName() + '\n' + "Correo electrï¿½nico: " + Util.valueForNullString(student.getsEmail());
 		return fileContent;
 	}
 
