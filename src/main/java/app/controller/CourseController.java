@@ -13,14 +13,14 @@ import app.utils.Util;
 public class CourseController {
 
 	public static int showCoursesSubmenu(Scanner scan) {
-		Util.showTitle("Menú Curso");
+		Util.showTitle("Menu Curso");
 		System.out.println("1 - Nuevo Curso");
 		System.out.println("2 - Ver Cursos");
 		System.out.println("3 - Modificar Curso");
 		System.out.println("4 - Eliminar Curso");
 		System.out.println("5 - Buscar Curso por Nombre");
-		System.out.println("0 - Ir Atrás");
-		System.out.print("Opción -> ");
+		System.out.println("0 - Ir Atras");
+		System.out.print("Opcion -> ");
 		return scan.nextInt();
 	}
 
@@ -63,7 +63,7 @@ public class CourseController {
 		} else {
 			System.out.println(actualCourse);
 			System.out.println();
-			System.out.print("¿Esta seguro de eliminar este curso? y/n -> ");
+			System.out.print("Seguro desea de eliminar este curso? y/n -> ");
 			String opt = scan.next();
 			if (opt.toUpperCase().equals("Y")) {
 				CoursesHelper.delete(idCourse, con);
@@ -82,7 +82,7 @@ public class CourseController {
 		} else {
 			System.out.println(actualCourse);
 			System.out.println();
-			System.out.print("¿Desea editar este curso? y/n -> ");
+			System.out.print("Desea editar este curso? y/n -> ");
 			String opt = scan.next();
 			if (opt.toUpperCase().equals("Y")) {
 				System.out.println();

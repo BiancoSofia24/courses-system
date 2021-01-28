@@ -58,7 +58,7 @@ public class InscriptionsController {
 
 	private static void createFile(Scanner scan, Connection con) throws SQLException, IOException {
 		Util.showTitle("Crear archivo con registro");
-		System.out.print("Ingrese id de la inscripción -> ");
+		System.out.print("Ingrese id de la inscripciï¿½n -> ");
 		int idInsc = scan.nextInt();
 		Inscription inscription = InscriptionsDAO.findById(idInsc, con);
 		if (inscription == null) {
@@ -69,15 +69,15 @@ public class InscriptionsController {
 	}
 
 	public static void deleteInscription(Scanner scan, Connection con) throws SQLException {
-		Util.showTitle("Eliminar Inscripción");
-		int idInsc = Util.requestId(scan, "inscripción");
+		Util.showTitle("Eliminar Inscripcion");
+		int idInsc = Util.requestId(scan, "inscripcion");
 		Inscription actualInscription = InscriptionsDAO.findById(idInsc, con);
 		if (actualInscription == null) {
 			System.err.println("Registro inexistente");
 		} else {
 			InscriptionsHelper.showInscription(actualInscription, con);
 			System.out.println();
-			System.out.print("¿Está seguro de eliminar esta inscripción? y/n -> ");
+			System.out.print("Seguro desea de eliminar esta inscripcion? y/n -> ");
 			String opt = scan.next();
 			if (opt.toUpperCase().equals("Y")) {
 				InscriptionsHelper.delete(idInsc, con);
@@ -89,8 +89,8 @@ public class InscriptionsController {
 
 	// Incomplete
 	public static void updateInscription(Scanner scan, Connection con) throws SQLException {
-		Util.showTitle("Modificar Inscripción");
-		int idInsc = Util.requestId(scan, "inscripción");
+		Util.showTitle("Modificar Inscripcion");
+		int idInsc = Util.requestId(scan, "inscripcion");
 		Inscription actualInscription = InscriptionsDAO.findById(idInsc, con);
 		if (actualInscription == null) {
 			System.err.println("Registro inexistente");
@@ -106,7 +106,7 @@ public class InscriptionsController {
 	}
 
 	public static void newInscription(Scanner scan, Connection con) throws SQLException {
-		Util.showTitle("Nueva Inscripción");
+		Util.showTitle("Nueva Inscripcion");
 		int idStudent = Util.requestId(scan, "alumno registrado");
 		Student student = StudentsDAO.findById(idStudent, con);
 		if (student == null) {
@@ -120,7 +120,7 @@ public class InscriptionsController {
 			} else {
 				System.out.println(course);
 				System.out.println();
-				System.out.print("¿Desea crear este registro? y/n -> ");
+				System.out.print("Desea crear este registro? y/n -> ");
 				String opt = scan.next();
 				if (opt.toUpperCase().equals("Y")) {
 					InscriptionsHelper.createValidInscription(student, course, con);
@@ -133,17 +133,17 @@ public class InscriptionsController {
 
 	// Incomplete
 	public static int showInscriptionsSubmenu(Scanner scan) {
-		Util.showTitle("Menú Inscripciones");
-		System.out.println("1 - Nueva Inscripción");
+		Util.showTitle("Menï¿½ Inscripciones");
+		System.out.println("1 - Nueva Inscripciï¿½n");
 		System.out.println("2 - Ver Inscripciones");
-		System.out.println("3 - Modificar Inscripción");
-		System.out.println("4 - Eliminar Inscripción");
+		System.out.println("3 - Modificar Inscripciï¿½n");
+		System.out.println("4 - Eliminar Inscripciï¿½n");
 		System.out.println("5 - Crear archivo con registro");
 		System.out.println("6 - Buscar Cursos por Alumno");
 		// Student per course. Search by teacher, status, commission, course
 		System.out.println("Faltan opciones :)");
-		System.out.println("0 - Ir Atrás");
-		System.out.print("Opción -> ");
+		System.out.println("0 - Ir Atrï¿½s");
+		System.out.print("Opciï¿½n -> ");
 		return scan.nextInt();
 	}
 

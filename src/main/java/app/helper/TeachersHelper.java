@@ -11,7 +11,7 @@ import app.utils.Util;
 public class TeachersHelper {
 
 	public static void showList(List<Teacher> list) {
-		Util.showSubtitle("Id | Nombre | Apellido  | Correo Electr�nico   | Especialidad");
+		Util.showSubtitle("Id | Nombre | Apellido  | Correo Electronico   | Especialidad");
 		for (Teacher item: list) {
 			System.out.println(item.getIdTeacher() + " | " + item.gettName() + " | " + item.gettLastName() + " | "
 					+ Util.valueForNullString(item.gettEmail()) + " | " + Util.valueForNullString(item.getSpecialty()));
@@ -19,7 +19,7 @@ public class TeachersHelper {
 	}
 
 	public static void showListByLastName(List<Teacher> list) {
-		Util.showSubtitle("Id | Apellido | Nombre  | Correo Electr�nico   | Especialidad");
+		Util.showSubtitle("Id | Apellido | Nombre  | Correo Electronico   | Especialidad");
 		for (Teacher item: list) {
 			System.out.println(item.getIdTeacher() + " | " + item.gettLastName() + " " + item.gettName() + " | "
 					+ Util.valueForNullString(item.gettEmail()) + " | " + Util.valueForNullString(item.getSpecialty()));
@@ -40,7 +40,7 @@ public class TeachersHelper {
 		if (updated == 1) {
 			System.out.println("Profesor editado correctamente");
 		} else {
-			Util.showError("Error en la edici�n de registro");
+			Util.showError("Error en la edicion de registro");
 		}
 	}
 

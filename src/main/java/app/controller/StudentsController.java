@@ -45,7 +45,7 @@ public class StudentsController {
 	private static void createFile(Scanner scan, Connection con) throws SQLException, IOException {
 		Util.showTitle("Crear archivo con registro");
 		System.out.println("Se creara un archivo con los datos del alumno registrado.");
-		System.out.print("¿Desea continuar? y/n -> ");
+		System.out.print("Desea continuar? y/n -> ");
 		String opt = scan.next();
 		if (opt.toUpperCase().equals("Y")) {
 			System.out.print("Ingrese id del alumno -> ");
@@ -84,7 +84,7 @@ public class StudentsController {
 		} else {
 			System.out.println(actualStudent);
 			System.out.println();
-			System.out.print("¿Está seguro de eliminar este alumno? y/n -> ");
+			System.out.print("Seguro desea eliminar a este alumno? y/n -> ");
 			String opt = scan.next();
 			if (opt.toUpperCase().equals("Y")) {
 				StudentsHelper.delete(idStudent, con);
@@ -104,7 +104,7 @@ public class StudentsController {
 			System.out.println(actualStudent);
 			System.out.println("Email: " + Util.valueForNullString(actualStudent.getsEmail()));
 			System.out.println();
-			System.out.print("¿Desea editar este alumno? y/n -> ");
+			System.out.print("ï¿½Desea editar este alumno? y/n -> ");
 			String opt = scan.next();
 			if (opt.toUpperCase().equals("Y")) {
 				System.out.println();
@@ -135,7 +135,7 @@ public class StudentsController {
 	}
 
 	public static int showStudentsSubmenu(Scanner scan) {
-		Util.showTitle("Menú Alumnos");
+		Util.showTitle("Menu Alumnos");
 		System.out.println("1 - Nuevo Alumno");
 		System.out.println("2 - Ver Alumnos");
 		System.out.println("3 - Modificar Alumno");
@@ -143,8 +143,8 @@ public class StudentsController {
 		System.out.println("5 - Buscar Alumno por Nombre");
 		System.out.println("6 - Buscar Alumno por Apellido");
 		System.out.println("7 - Imprimir registro de Alumnos");
-		System.out.println("0 - Ir Atrás");
-		System.out.print("Opción -> ");
+		System.out.println("0 - Ir Atras");
+		System.out.print("Opcion -> ");
 		return scan.nextInt();
 	}
 

@@ -63,7 +63,7 @@ public class TeachersController {
 		} else {
 			System.out.println(actualTeacher);
 			System.out.println();
-			System.out.print("¿Está seguro de eliminar este profesor? y/n -> ");
+			System.out.print("Seguro desea eliminar a este profesor? y/n -> ");
 			String opt = scan.next();
 			if (opt.toUpperCase().equals("Y")) {
 				TeachersHelper.delete(idTeacher, con);
@@ -85,7 +85,7 @@ public class TeachersController {
 			System.out.println("Email: " + Util.valueForNullString(actualTeacher.gettEmail()));
 			System.out.println("Especialidad: " + Util.valueForNullString(actualTeacher.getSpecialty()));
 			System.out.println();
-			System.out.print("¿Desea editar este profesor? y/n -> ");
+			System.out.print("Desea editar este profesor? y/n -> ");
 			String opt = scan.next();
 			if (opt.toUpperCase().equals("Y")) {
 				System.out.println();
@@ -119,15 +119,15 @@ public class TeachersController {
 	}
 
 	public static int showTeachersSubmenu(Scanner scan) {
-		Util.showTitle("Menú Profesores");
+		Util.showTitle("Menu Profesores");
 		System.out.println("1 - Nuevo Profesor");
 		System.out.println("2 - Ver Profesores");
 		System.out.println("3 - Modificar Profesor");
 		System.out.println("4 - Eliminar Profesor");
 		System.out.println("5 - Buscar Profesor por Nombre");
 		System.out.println("6 - Buscar Profesor por Apellido");
-		System.out.println("0 - Ir Atrás");
-		System.out.print("Opción -> ");
+		System.out.println("0 - Ir Atras");
+		System.out.print("Opcion -> ");
 		return scan.nextInt();
 	}
 

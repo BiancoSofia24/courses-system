@@ -18,7 +18,7 @@ public class AppJDBC {
 		Util.showTitle("Escuelita");
 		try {
 			Connection con = AdminDB.getConnection();
-			System.out.println("Conexión establecida...");
+			System.out.println("Conexion establecida...");
 			Scanner scan = new Scanner(System.in);
 			int option = showMenu(scan);
 			while (option != 0) {
@@ -42,6 +42,7 @@ public class AppJDBC {
 				option = showMenu(scan);
 			}
 			con.close();
+			scan.close();
 			System.out.println("Hasta Luego..!");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -73,7 +74,7 @@ public class AppJDBC {
 	}
 
 	private static int showMenu(Scanner scan) {
-		Util.showTitle("Menú Principal");
+		Util.showTitle("Menu Principal");
 		System.out.println("1 - Alumnos");
 		System.out.println("2 - Cursos");
 		System.out.println("3 - Profesores");
@@ -83,7 +84,7 @@ public class AppJDBC {
 		// for accumulative record
 		// method 2: read the file as a backup
 		System.out.println("0 - Salir");
-		System.out.print("Opción -> ");
+		System.out.print("Opcion -> ");
 		return scan.nextInt();
 	}
 

@@ -31,7 +31,7 @@ public class CoursesHelper {
 		if (updated == 1) {
 			System.out.println("Registro editado exitosamente");
 		} else {
-			Util.showError("Error en la edici�n de registro");
+			Util.showError("Error en la edicion de registro");
 		}
 	}
 

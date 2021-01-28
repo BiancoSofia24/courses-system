@@ -16,7 +16,7 @@ import app.utils.Util;
 public class StudentsHelper {
 
 	public static void showList(List<Student> list) {
-		Util.showSubtitle("Id | Nombre   | Apellido    | Correo Electr�nico");
+		Util.showSubtitle("Id | Nombre   | Apellido    | Correo Electronico");
 		for (Student item: list) {
 			System.out.println(item.getIdStudent() + " | " + item.getsName() + " " + item.getsLastName() + " | "
 					+ Util.valueForNullString(item.getsEmail()));
@@ -24,7 +24,7 @@ public class StudentsHelper {
 	}
 
 	public static void showListByLastName(List<Student> list) {
-		Util.showSubtitle("Id | Apellido    | Nombre     | Correo Electr�nico");
+		Util.showSubtitle("Id | Apellido    | Nombre     | Correo Electronico");
 		for (Student item: list) {
 			System.out.println(item.getIdStudent() + " | " + item.getsLastName() + " | " + item.getsName() + " | "
 					+ Util.valueForNullString(item.getsEmail()));
@@ -45,7 +45,7 @@ public class StudentsHelper {
 		if (updated == 1) {
 			System.out.println("Registro editado exitosamente");
 		} else {
-			Util.showError("Error en la edici�n de registro");
+			Util.showError("Error en la edicion de registro");
 		}
 	}
 
@@ -72,9 +72,9 @@ public class StudentsHelper {
 	public static String fileContent(Student student, Connection con) throws SQLException {
 		SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		String date = simpleDate.format(new Date());
-		String fileContent = "Fecha de creaci�n: " + date + '\n' + '\n' + "Alumno #" + student.getIdStudent() + '\n'
+		String fileContent = "Fecha de creacion: " + date + '\n' + '\n' + "Alumno #" + student.getIdStudent() + '\n'
 				+ "-------------------" + '\n' + '\n' + "Nombre: " + student.getsName() + '\n' + "Apellido: "
-				+ student.getsLastName() + '\n' + "Correo electr�nico: " + Util.valueForNullString(student.getsEmail());
+				+ student.getsLastName() + '\n' + "Correo electronico: " + Util.valueForNullString(student.getsEmail());
 		return fileContent;
 	}
 

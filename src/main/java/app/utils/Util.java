@@ -28,21 +28,21 @@ public class Util {
 	public static void showSubtitle(String text) {
 		System.out.println();
 		System.out.println(text);
-		System.out.println("-------------------------------------");
+		System.out.println("--------------------------------------------------------");
 	}
 
 	public static void showTitle(String text) {
 		System.out.println();
-		System.out.println("-------------------------------------");
+		System.out.println("========================================================");
 		System.out.println(text);
-		System.out.println("-------------------------------------");
+		System.out.println("========================================================");
 	}
 
 	public static int requestCalifications(Scanner scan, String califType) {
 		System.out.print("Ingrese nota " + califType + " -> ");
 		int note = scan.nextInt();
 		while (note > MAX_NOTE || note < MIN_NOTE) {
-			showError("Error de ingreso. Valor inválido");
+			showError("Error de ingreso. Valor invalido");
 			System.out.print("Ingrese nota " + califType + " -> ");
 			note = scan.nextInt();
 		}
@@ -50,11 +50,11 @@ public class Util {
 	}
 
 	public static String requestCommision(Scanner scan) {
-		System.out.print("Ingrese comisión -> ");
+		System.out.print("Ingrese comision -> ");
 		String commission = scan.next();
 		while (notValidStringLength(commission)) {
-			showError("Error de ingreso. Texto inválido");
-			System.out.print("Ingrese comisión -> ");
+			showError("Error de ingreso. Texto invalido");
+			System.out.print("Ingrese comision -> ");
 			commission = scan.next();
 		}
 		return commission;
@@ -64,7 +64,7 @@ public class Util {
 		System.out.print("Ingrese especialidad -> ");
 		String specialty = scan.next();
 		while (notValidStringLength(specialty)) {
-			showError("Error de ingreso. Texto inválido");
+			showError("Error de ingreso. Texto invalido");
 			System.out.print("Ingrese especialidad -> ");
 			specialty = scan.next();
 		}
@@ -72,12 +72,12 @@ public class Util {
 	}
 
 	public static String requestEmail(Scanner scan, String field) {
-		System.out.print("Ingrese correo electrónico del " + field + " -> ");
+		System.out.print("Ingrese correo electronico del " + field + " -> ");
 		// Validate email
 		String email = scan.next();
 		while (notValidStringLength(email)) {
-			showError("Error de ingreso. Texto inválido");
-			System.out.print("Ingrese correo electrónico del " + field + " -> ");
+			showError("Error de ingreso. Texto invalido");
+			System.out.print("Ingrese correo electronico del " + field + " -> ");
 			email = scan.next();
 		}
 		return email;
@@ -87,7 +87,7 @@ public class Util {
 		System.out.print("Ingrese " + option + " del " + field + " -> ");
 		String value = scan.next();
 		while (notValidStringLength(value)) {
-			showError("Error de ingreso. Texto inválido");
+			showError("Error de ingreso. Texto invalido");
 			System.out.print("Ingrese " + option + " del " + field + " -> ");
 			value = scan.next();
 		}
