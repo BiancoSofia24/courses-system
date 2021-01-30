@@ -104,7 +104,7 @@ public class StudentsController {
 			System.out.println(actualStudent);
 			System.out.println("Email: " + Util.valueForNullString(actualStudent.getsEmail()));
 			System.out.println();
-			System.out.print("�Desea editar este alumno? y/n -> ");
+			System.out.print("Desea editar este alumno? y/n -> ");
 			String opt = scan.next();
 			if (opt.toUpperCase().equals("Y")) {
 				System.out.println();
